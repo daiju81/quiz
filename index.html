@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -20,6 +20,38 @@
   </section>
 
   <script src="src/js/main.js"></script>
+</body>
+
+</html> -->
+
+<!-- テスト時にはモック使用 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="src/css/styles.css">
+</head>
+
+<body>
+  <section class="container">
+    <p id="question">question</p>
+    <ul id="choices">
+      <li id="q1">q1</li>
+      <li id="q2">q2</li>
+      <li id="q3">q3</li>
+    </ul>
+    <div id="btn" class="disabled">Next</div>
+
+    <section id="result" class="hidden">
+      <p></p>
+      <a href="">Replay?</a>
+    </section>
+  </section>
+
+  <!-- テスト時はjsファイルをコメントアウト -->
+  <!-- <script src="src/js/main.js"></script> -->
 </body>
 
 </html>
