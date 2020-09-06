@@ -2,7 +2,7 @@ const path = require('path')
 
 describe('E2Eテスト', () => {
   beforeEach(async () => {
-    await page.goto('file://' + path.resolve(__dirname, '../index.html'))
+    await page.goto('file://' + path.resolve(__dirname, '../index_mock.html'))
   })
   
   it('question', async () => {
