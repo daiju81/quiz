@@ -5,7 +5,7 @@ expect.extend({ toMatchImageSnapshot });
 
 describe("ビジュアルテスト", () => {
   beforeEach(async () => {
-    await page.goto("file://" + path.resolve(__dirname, "../index.html"));
+    await page.goto("file://" + path.resolve(__dirname, "../index_mock.html"));
   });
 
   it("HTML/CSSを含めた見た目が正しい", async() => {
