@@ -5,13 +5,20 @@ jsコードをtsコードに移植
 ## Description
 
 1. eslint/prettierセットアップ
-2. e2eテストコード記述/実行
+2. e2e/ビジュアル/スナップショットテストコード記述/実行
+
+### テストをまとめて実行
+```bash
+yarn run test
+yarn run test:all
+```
+
+### テストを一つずつ実行
 
 ```
 npx jest ./spec/e2e.spec.js
+npx jest ./spec/e2e_mock.spec.js
 ```
-
-3. ビジュアルテストコード/実行
 
 ```bash
 npx jest ./spec/visual.spec.js
