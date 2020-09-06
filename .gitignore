@@ -1,3 +1,6 @@
+# テスト時のスナップショット
+__image_snapshots__
+
 # Logs
 logs
 *.log
