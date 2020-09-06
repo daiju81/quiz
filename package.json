@@ -5,6 +5,10 @@
   "repository": "git@github.com:daiju81/quiz.git",
   "author": "daiju81 <1d07c.m8k.prv@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest spec/e2e.spec.js visual.spec.js e2e_stub.spec.js",
+    "test:all": "jest"
+  },
   "dependencies": {
     "@types/node": "^14.6.4",
     "eslint": "^7.8.1",
