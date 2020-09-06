@@ -10,3 +10,12 @@ jsコードをtsコードに移植
 ```
 npx jest ./spec/e2e.spec.js
 ```
+
+3. ビジュアルテストコード/実行
+
+```bash
+npx jest ./spec/visual.spec.js
+
+# スナップショット更新
+npx jest ./spec/e2e.spec.js --updateSnapshot
+```
