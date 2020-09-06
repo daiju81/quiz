@@ -4,7 +4,12 @@ const btn = document.getElementById('btn')
 const result = document.getElementById('result')
 const scoreLabel = document.querySelector('#result > p')
 
-const questionArray = [
+type QuestionArrayParams = {
+  q: string,
+  c: string[]
+}
+
+const questionArray: QuestionArrayParams[] = [
   { q: '世界で一番大きな湖は？', c: ['カスピ海', 'カリブ海', '琵琶湖'] },
   { q: '2の8乗は？', c: ['256', '64', '1024'] },
   {
@@ -13,12 +18,12 @@ const questionArray = [
   },
 ]
 
-const quizSet = shuffle(questionArray)
+const quizSet = shuffle<QuestionArrayParams>(questionArray)
 let currentNum = 0
 let isAnswered: boolean
 let score = 0
 
-function shuffle(arr) {
+function shuffle<T>(arr: T[]) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[arr[j], arr[i]] = [arr[i], arr[j]]
@@ -40,44 +45,44 @@ function checkAnswer(li: HTMLElement) {
     li.classList.add('wrong')
   }
 
-  btn.classList.remove('disabled')
+  btn?.classList.remove('disabled')
 }
 
 function setQuiz() {
   isAnswered = false
 
-  question.textContent = quizSet[currentNum].q
+  if(question) question.textContent = quizSet[currentNum].q
 
-  while (choices.firstChild) {
+  while (choices?.firstChild) {
     choices.removeChild(choices.firstChild)
   }
 
-  const shuffledChoices = shuffle([...quizSet[currentNum].c])
+  const shuffledChoices = shuffle<string>([...quizSet[currentNum].c])
   shuffledChoices.forEach((choice) => {
     const li = document.createElement('li')
     li.textContent = choice
     li.addEventListener('click', () => {
       checkAnswer(li)
     })
-    choices.appendChild(li)
+    choices?.appendChild(li)
   })
 
   if (currentNum === quizSet.length - 1) {
-    btn.textContent = 'Show Score'
+    if(btn) btn.textContent = 'Show Score'
   }
 }
 
 setQuiz()
 
-btn.addEventListener('click', () => {
+btn?.addEventListener('click', () => {
   if (btn.classList.contains('disabled')) {
     return
   }
   btn.classList.add('disabled')
 
   if (currentNum === quizSet.length - 1) {
-    scoreLabel.textContent = `Score: ${score} / ${quizSet.length}`
-    result.classList.remove('hidden')
+    if(scoreLabel) scoreLabel.textContent = `Score: ${score} / ${quizSet.length}`
+    result?.classList.remove('hidden')
   } else {
     currentNum++
     setQuiz()

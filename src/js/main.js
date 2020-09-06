@@ -42,12 +42,13 @@ function checkAnswer(li) {
     else {
         li.classList.add('wrong');
     }
-    btn.classList.remove('disabled');
+    btn === null || btn === void 0 ? void 0 : btn.classList.remove('disabled');
 }
 function setQuiz() {
     isAnswered = false;
-    question.textContent = quizSet[currentNum].q;
-    while (choices.firstChild) {
+    if (question)
+        question.textContent = quizSet[currentNum].q;
+    while (choices === null || choices === void 0 ? void 0 : choices.firstChild) {
         choices.removeChild(choices.firstChild);
     }
     var shuffledChoices = shuffle(__spreadArrays(quizSet[currentNum].c));
@@ -57,21 +58,23 @@ function setQuiz() {
         li.addEventListener('click', function () {
             checkAnswer(li);
         });
-        choices.appendChild(li);
+        choices === null || choices === void 0 ? void 0 : choices.appendChild(li);
     });
     if (currentNum === quizSet.length - 1) {
-        btn.textContent = 'Show Score';
+        if (btn)
+            btn.textContent = 'Show Score';
     }
 }
 setQuiz();
-btn.addEventListener('click', function () {
+btn === null || btn === void 0 ? void 0 : btn.addEventListener('click', function () {
     if (btn.classList.contains('disabled')) {
         return;
     }
     btn.classList.add('disabled');
     if (currentNum === quizSet.length - 1) {
-        scoreLabel.textContent = "Score: " + score + " / " + quizSet.length;
-        result.classList.remove('hidden');
+        if (scoreLabel)
+            scoreLabel.textContent = "Score: " + score + " / " + quizSet.length;
+        result === null || result === void 0 ? void 0 : result.classList.remove('hidden');
     }
     else {
         currentNum++;
