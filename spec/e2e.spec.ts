@@ -1,4 +1,4 @@
-const path = require('path')
+import path from 'path'
 
 describe('jsの振る舞いも合わせたテスト', () => {
   beforeEach(async () => {

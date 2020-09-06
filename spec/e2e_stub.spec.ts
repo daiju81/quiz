@@ -1,4 +1,4 @@
-const path = require('path')
+import path from 'path'
 
 describe('スタブを使用したE2Eテスト', () => {
   beforeEach(async () => {
